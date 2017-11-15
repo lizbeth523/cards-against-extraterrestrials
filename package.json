@@ -1,0 +1,19 @@
+{
+  "name": "cards-against-extraterrestrials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizbeth523/cards-against-extraterrestrials.git"
+  },
+  "author": "Elizabeth Tom, Saad Mecci, Raul Larios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizbeth523/cards-against-extraterrestrials/issues"
+  },
+  "homepage": "https://github.com/lizbeth523/cards-against-extraterrestrials#readme"
+}
