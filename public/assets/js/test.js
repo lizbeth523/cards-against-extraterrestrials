@@ -77,3 +77,4 @@ var Response = function() {
 	var category = new Category();
 	$("#category").text(category.text);
 });
+
