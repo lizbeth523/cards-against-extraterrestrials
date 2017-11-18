@@ -123,8 +123,7 @@ $(document).ready(function() {
 	setupGame();
 
 	$(".card").on("click", function(event) {
-		event.preventDefault();
-		
+
 		$.ajax("/api/update/response", {
 			type: "POST",
 			data: this
