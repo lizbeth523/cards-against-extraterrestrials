@@ -4,7 +4,7 @@
 }
 
 body { 
-	background: url("../images/aurora.jpg") no-repeat center fixed; 
+	background: url("../images/cowUfo.jpg") no-repeat center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -54,6 +54,7 @@ header {
 
 .card {
 	height: 20vh;
+	overflow: auto;
 }
 
 .category-card {
@@ -67,6 +68,8 @@ header {
 
 .game-name {
 	font-size: 0.5em;
+	text-align: left;
+	margin-left: 5px;
 }
 
 .response-cards {
