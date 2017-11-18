@@ -11,6 +11,43 @@ body {
 	background-size: cover;
 }
 
+header {
+	display: block;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	float: none;
+	z-index: auto;
+	width: auto;
+	height: auto;
+	position: static;
+	cursor: default;
+	opacity: 1;
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	border: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	/*font: normal 80px/normal "Anton", Helvetica, sans-serif;*/
+	color: rgb(255, 255, 255);
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	background: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: 0 0 20px rgb(254,252,201) , 10px -10px 30px rgb(254,236,133) , -20px -20px 40px rgb(255,174,52) , 20px -40px 50px rgb(236,118,12) , -20px -60px 60px rgb(205,70,6) , 0 -80px 70px rgb(151,55,22) , 10px -90px 80px rgb(69,27,14) ;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+	-webkit-transform: none;
+	transform: none;
+	-webkit-transform-origin: 50% 50% 0;
+	/*transform-origin: 50% 50% 0;*/
+	font-family: "Alienato";
+}
+
 .alien-font {
 	font-family: "Alienato";
 }
@@ -24,6 +61,10 @@ body {
 	color: white;
 }
 
+.container-fluid {
+	text-align: center;
+}
+
 .game-name {
 	font-size: 0.5em;
 }
@@ -35,10 +76,6 @@ body {
 .response-row {
 	position: fixed;
 	bottom: 0;
-}
-
-.test {
-	font-family: "Alienato";
-	font-size: 3em;
-	color: white;
+	margin-right: auto;
+	margin-left: auto;
 }
