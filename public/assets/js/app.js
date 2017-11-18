@@ -114,7 +114,15 @@ $(document).ready(function() {
 	setupGame();
 
 	$(".card").on("click", function() {
-		alert($(this).text());
+		// Send the POST request
+		$.ajax("/api/update", {
+			type: "POST",
+			data: this
+		}).then ( function() {
+			console.log(this + " was sent to the server");
+			// Reload the page to get the updated list
+			location.reload();
+		});
 	});
 });
 

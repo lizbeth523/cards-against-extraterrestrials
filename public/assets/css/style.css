@@ -1,3 +1,9 @@
+@font-face {
+    font-family: “Alienato”;
+    src: url(“ALIENATO.ttf”);
+    src: url(ALIENATO.ttf) format(“truetype”);
+}
+
 body { 
 	background: url("../images/aurora.jpg") no-repeat center fixed; 
 	-webkit-background-size: cover;
@@ -16,7 +22,10 @@ body {
 }
 
 .response-cards {
-	background-color: white;
+	background-color: white;	
+}
+
+.response-row {
 	position: fixed;
 	bottom: 0;
 }
