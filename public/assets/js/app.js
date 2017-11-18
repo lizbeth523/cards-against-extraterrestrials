@@ -18,7 +18,8 @@ $(document).ready(function() {
 		"Life for American Indians was forever changed when the White Man introduced them to _____.", "I do not know with what weapons World War III will be fought, but World War IV will be fought with _____.", "Why do I hurt all over?",
 		"What am I giving up for Lent?", "In Michael Jackson's final moments, he thought about _____.", "In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on _____.", 
 		"When I am President of the United States, I will create the Department of _____.", "Lifetime presents _____, the story of my life.", "When I am a billionaire, I shall erect a 50-foot status to commemorate _____.", "When I was tripping on acid, I saw _____.",
-		"That's right, I killed Kenny. How you ask? _____.", "What's my anti-drug?", "What never fails to liven up the party?", "What's the new fad diet?", "Major League Baseball has banned _____ for giving players an unfair advantage."];
+		"That's right, I killed Kenny. How you ask? _____.", "What's my anti-drug?", "What never fails to liven up the party?", "What's the new fad diet?", "Major League Baseball has banned _____ for giving players an unfair advantage.",
+		"Because of my investment in Bitcoin, soon I'll be able to afford _____.", "Thanks to the sharing economy, I can now make money renting out my _____.", "What's my startup disrupting?", "The inspiration for my startup"];
 
 		this.index = Math.floor(Math.random() * this.options.length);
 		this.text = this.options[this.index];
@@ -76,8 +77,44 @@ $(document).ready(function() {
 
 	var setupGame = function() {
 		var category = new Category();
+		var numResponseOptions = 10;
+		var responses = getResponses(numResponseOptions);
+
 		$("#category").text(category.text);
+		placeResponseCards(responses, numResponseOptions);
+		
 	};
+
+	var getResponses = function(num) {
+		var responses = [];
+		var response;
+
+		for (var i = 0; i < num; i++) {
+			response = new Response();
+			responses[i] = response.text;
+		}
+
+		return responses;
+	};
+
+	var placeResponseCards = function(responses, numResponses) {
+		$("#0").text(responses[0]);
+		$("#1").text(responses[1]);
+		$("#2").text(responses[2]);
+		$("#3").text(responses[3]);
+		$("#4").text(responses[4]);
+		$("#5").text(responses[5]);
+		$("#6").text(responses[6]);
+		$("#7").text(responses[7]);
+		$("#8").text(responses[8]);
+		$("#9").text(responses[9]);
+	}; 
 	
+	// Start game
+	setupGame();
+
+	$(".card").on("click", function() {
+		alert($(this).text());
+	});
 });
 
