@@ -21,10 +21,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
 // Set Handlebars.
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
@@ -32,11 +32,12 @@ app.set("view engine", "handlebars");
 
 app.get("/", function(req, res) {
     db.leader.findAll({}).then( function(response) {
-      var hbsObject = {
-        leaders: response
-      };
-      console.log(hbsObject);
-      res.render("index", hbsObject);
+      // var hbsObject = {
+      //   leaders: response
+      // };
+      // console.log(hbsObject);
+      // res.render("index", hbsObject);
+      res.redirect("/");
     });
   });
 
