@@ -77,7 +77,7 @@ $(document).ready(function() {
 
 	var setupGame = function() {
 		var category = new Category();
-		var numResponseOptions = 10;
+		var numResponseOptions = 6;
 		var responses = getResponses(numResponseOptions);
 
 		// Send the category to the server
@@ -113,10 +113,10 @@ $(document).ready(function() {
 		$("#3").text(responses[3]);
 		$("#4").text(responses[4]);
 		$("#5").text(responses[5]);
-		$("#6").text(responses[6]);
-		$("#7").text(responses[7]);
-		$("#8").text(responses[8]);
-		$("#9").text(responses[9]);
+		// $("#6").text(responses[6]);
+		// $("#7").text(responses[7]);
+		// $("#8").text(responses[8]);
+		// $("#9").text(responses[9]);
 	}; 
 	
 	// Start game
