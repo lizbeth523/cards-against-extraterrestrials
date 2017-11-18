@@ -80,6 +80,15 @@ $(document).ready(function() {
 		var numResponseOptions = 10;
 		var responses = getResponses(numResponseOptions);
 
+		// Send the category to the server
+		$.ajax("/api/update/category", {
+			type: "POST",
+			data: category.text
+		}).then ( function() {
+			console.log(category.text + " was sent to the server");
+			// Reload the page to get the updated list
+			location.reload();
+		});
 		$("#category").text(category.text);
 		placeResponseCards(responses, numResponseOptions);
 		
@@ -113,9 +122,10 @@ $(document).ready(function() {
 	// Start game
 	setupGame();
 
-	$(".card").on("click", function() {
-		// Send the POST request
-		$.ajax("/api/update", {
+	$(".card").on("click", function(event) {
+		event.preventDefault();
+		
+		$.ajax("/api/update/response", {
 			type: "POST",
 			data: this
 		}).then ( function() {
