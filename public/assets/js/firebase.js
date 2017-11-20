@@ -11,3 +11,18 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+var players = database.ref('/players');
+
+const btnLogin = $("#login");
+
+console.log(btnLogin);
+
+btnLogin.on("click",function(){
+    firebase.auth().signInAnonymously();
+});
+
+firebase.auth().onAuthStateChanged(firebaseUser=>{
+	console.log(firebaseUser);
+	console.log(firebaseUser.uid);
+	players.push(firebaseUser.uid);
+});
