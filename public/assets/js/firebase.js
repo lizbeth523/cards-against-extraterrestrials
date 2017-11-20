@@ -1,43 +1,44 @@
-// Initialize Firebase
-var config = {
-        apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
-        authDomain: "cards-against-extraterrestials.firebaseapp.com",
-        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
-        projectId: "cards-against-extraterrestials",
-        storageBucket: "cards-against-extraterrestials.appspot.com",
-        messagingSenderId: "1038459487422"
-    };
-    firebase.initializeApp(config);
 
-    var players = firebase.database().ref('/players')
+//// Initialize Firebase
+//var config = {
+//  apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+//  authDomain: "cards-against-extraterrestials.firebaseapp.com",
+//  databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+//  projectId: "cards-against-extraterrestials",
+//  storageBucket: "cards-against-extraterrestials.appspot.com",
+//  messagingSenderId: "1038459487422"
+//};
+//firebase.initializeApp(config);//
 
-   const btnLogin = $("#login");
+//var database = firebase.database();//
 
-   console.log(btnLogin);
-   
-   btnLogin.on("click",function(){
-    firebase.auth().signInAnonymously();
-   });
+//var userName = "";//
 
-   firebase.auth().onAuthStateChanged(firebaseUser=>{
-    console.log(firebaseUser)
-    console.log(firebaseUser.uid)
-    players.push(firebaseUser.uid)
+//$("#login").on("click", function (event) {
+//	event.preventDefault();//
 
-   });
+//	userName = $("#userName").val().trim();//
 
-var players = database.ref('/players');
+//	console.log(userName);//
 
-const btnLogin = $("#login");
+//	database.ref().push({
+//		userName: userName
+//	});
+//});
 
-console.log(btnLogin);
+//var players = database.ref('/players');
 
-btnLogin.on("click",function(){
-    firebase.auth().signInAnonymously();
-});
+//const btnLogin = $("#login");
 
-firebase.auth().onAuthStateChanged(firebaseUser=>{
-	console.log(firebaseUser);
-	console.log(firebaseUser.uid);
-	players.push(firebaseUser.uid);
-});
+//btnLogin.on("click",function(){
+    //firebase.auth().signInAnonymously();
+    
+//});
+
+
+
+//firebase.auth().onAuthStateChanged(firebaseUser=>{
+//	console.log(firebaseUser);
+//	console.log(firebaseUser.uid);
+//	players.push(firebaseUser.uid);
+//});
