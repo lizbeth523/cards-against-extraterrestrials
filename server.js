@@ -30,18 +30,20 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // =============================================================
 // require("./controllers/controller.js")(app);
 
-app.get("/", function(req, res) {
-    db.leader.findAll({}).then( function(response) {
+//app.get("/", function(req, res) {
+//    db.leader.findAll({}).then( function(response) {
       // var hbsObject = {
       //   leaders: response
       // };
       // console.log(hbsObject);
       // res.render("index", hbsObject);
-      res.redirect("/");
-    });
-  });
+      //res.redirect("/");
+    //});
+//});
 
-app.use("/", controller);
+//app.use("/", controller);
+//requires the routing files for that the app will be using
+require("./routes/htmlRoutes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
