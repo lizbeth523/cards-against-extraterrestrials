@@ -45,12 +45,41 @@
                 <form>
                     <div class="form-group">
                         <label for="userName"><h3>Username</h3></label>
-                        <input type="text" class="form-control" id="name" placeholder="John Smith">
+                        <input type="text" class="form-control" id="userName" placeholder="John">
                     </div>
                     <a href="/game"><button type="button" class="btn btn-warning" id="login">Login</button></a>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+          authDomain: "cards-against-extraterrestials.firebaseapp.com",
+          databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+          projectId: "cards-against-extraterrestials",
+          storageBucket: "cards-against-extraterrestials.appspot.com",
+          messagingSenderId: "1038459487422"
+        };
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+        var userName = "";
+
+        $("#login").on("click", function (event) {
+
+            userName = $("#userName").val().trim();
+
+            console.log(userName);
+
+            database.ref().push({
+                userName: userName
+            });
+        });
+    </script>
 </body>
 </html>

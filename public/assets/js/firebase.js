@@ -1,28 +1,43 @@
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
-  authDomain: "cards-against-extraterrestials.firebaseapp.com",
-  databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
-  projectId: "cards-against-extraterrestials",
-  storageBucket: "cards-against-extraterrestials.appspot.com",
-  messagingSenderId: "1038459487422"
-};
-firebase.initializeApp(config);
+//// Initialize Firebase
+//var config = {
+//  apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+//  authDomain: "cards-against-extraterrestials.firebaseapp.com",
+//  databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+//  projectId: "cards-against-extraterrestials",
+//  storageBucket: "cards-against-extraterrestials.appspot.com",
+//  messagingSenderId: "1038459487422"
+//};
+//firebase.initializeApp(config);//
 
-var database = firebase.database();
+//var database = firebase.database();//
 
-var players = database.ref('/players');
+//var userName = "";//
 
-const btnLogin = $("#login");
+//$("#login").on("click", function (event) {
+//	event.preventDefault();//
 
-console.log(btnLogin);
+//	userName = $("#userName").val().trim();//
 
-btnLogin.on("click",function(){
-    firebase.auth().signInAnonymously();
-});
+//	console.log(userName);//
 
-firebase.auth().onAuthStateChanged(firebaseUser=>{
-	console.log(firebaseUser);
-	console.log(firebaseUser.uid);
-	players.push(firebaseUser.uid);
-});
+//	database.ref().push({
+//		userName: userName
+//	});
+//});
+
+//var players = database.ref('/players');
+
+//const btnLogin = $("#login");
+
+//btnLogin.on("click",function(){
+    //firebase.auth().signInAnonymously();
+    
+//});
+
+
+
+//firebase.auth().onAuthStateChanged(firebaseUser=>{
+//	console.log(firebaseUser);
+//	console.log(firebaseUser.uid);
+//	players.push(firebaseUser.uid);
+//});
