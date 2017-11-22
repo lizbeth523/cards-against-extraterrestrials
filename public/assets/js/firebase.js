@@ -1,44 +1,45 @@
+$(document).ready(function () {
+	// Initialize Firebase
+	var config = {
+    	apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+        authDomain: "cards-against-extraterrestials.firebaseapp.com",
+        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+        projectId: "cards-against-extraterrestials",
+        storageBucket: "cards-against-extraterrestials.appspot.com",
+        messagingSenderId: "1038459487422"
+    };
+    firebase.initializeApp(config);
 
-//// Initialize Firebase
-//var config = {
-//  apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
-//  authDomain: "cards-against-extraterrestials.firebaseapp.com",
-//  databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
-//  projectId: "cards-against-extraterrestials",
-//  storageBucket: "cards-against-extraterrestials.appspot.com",
-//  messagingSenderId: "1038459487422"
-//};
-//firebase.initializeApp(config);//
+    var database = firebase.database();
 
-//var database = firebase.database();//
+    var userName = "";
 
-//var userName = "";//
+    var playersRef = database.ref("players");
 
-//$("#login").on("click", function (event) {
-//	event.preventDefault();//
+    var currentPlayers = null;
 
-//	userName = $("#userName").val().trim();//
+    $("#login").click(function (event) {
 
-//	console.log(userName);//
+       	console.log("heelo");
 
-//	database.ref().push({
-//		userName: userName
-//	});
-//});
+        if (currentPlayers < 6) {
+                
+        }
 
-//var players = database.ref('/players');
+        userName = $("#userName").val().trim();
 
-//const btnLogin = $("#login");
+        // Creates key based on assigned player number
+        playersRef = database.ref("/players/" + userName);
 
-//btnLogin.on("click",function(){
-    //firebase.auth().signInAnonymously();
-    
-//});
-
-
-
-//firebase.auth().onAuthStateChanged(firebaseUser=>{
-//	console.log(firebaseUser);
-//	console.log(firebaseUser.uid);
-//	players.push(firebaseUser.uid);
-//});
+        playersRef.set({
+        	points: 'all the points'
+        });
+    });
+ });
+//when player 1 logs on, initialize the game, creates a game table inside database
+//game table will have game name, usernames
+//player1 is waiting for addtional players to join
+//database.on value on log-in function to check to see if game already exists
+//if game exists, run only the function that will add players to the game
+//if game does not exist, initialize game, create game table
+//have an array of players with playerId that can check if players have joined
