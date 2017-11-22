@@ -27,7 +27,6 @@ $(document).ready(function () {
         }
 
         userName = $("#userName").val().trim();
-
         // Creates key based on assigned player number
         playersRef = database.ref("/players/" + userName);
 
@@ -35,7 +34,7 @@ $(document).ready(function () {
         	points: 'all the points'
         });
     });
- });
+});
 //when player 1 logs on, initialize the game, creates a game table inside database
 //game table will have game name, usernames
 //player1 is waiting for addtional players to join
