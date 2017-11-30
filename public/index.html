@@ -16,7 +16,7 @@
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <script src="./assets/js/firebase.js"></script>
+    <!-- <script src="./assets/js/firebase.js"></script> -->
     <script src="./assets/js/app.js"></script>
 
 </head>
@@ -43,8 +43,11 @@
             <div class="col-xs-12">
      
                 <form>
-                    <div class="form-group">
+                    <div class="form-group" action="/game" method="GET">
                         <label for="userName"><h3>Username</h3></label>
+                      
+<!--                         <input type="text" class="form-control" id="name" name="user_name" placeholder="John Smith"> -->
+                      
                         <input type="text" class="form-control" id="userName" placeholder="John">
                     </div>
                     <a href="/game"><button type="button" class="btn btn-warning" id="login">Login</button></a>
@@ -55,3 +58,41 @@
 
 </body>
 </html>
+
+<script>
+	// Initialize Firebase
+	var config = {
+        apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+        authDomain: "cards-against-extraterrestials.firebaseapp.com",
+        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+        projectId: "cards-against-extraterrestials",
+        storageBucket: "cards-against-extraterrestials.appspot.com",
+        messagingSenderId: "1038459487422"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+	var players = database.ref('/players');
+
+	const btnLogin = $("#login");
+
+	console.log(btnLogin);
+
+	$("#login").on("click", function(event){
+		event.preventDefault(event);
+		
+	    firebase.auth().signInAnonymously().catch(function(error) {
+	    	console.log("Error occurred during sign in anonymously");
+	    	console.log("Error code = " + error.code);
+	    	console.log("Error message = " + error.message);
+	    });
+	    console.log("login button was clicked");
+	});
+
+	firebase.auth().onAuthStateChanged(firebaseUser=>{
+		console.log(firebaseUser);
+		console.log(firebaseUser.uid);
+		players.push(firebaseUser.uid);
+	});
+</script>
