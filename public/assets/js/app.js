@@ -75,6 +75,20 @@ $(document).ready(function() {
 		this.text = this.options[this.index];
 	};
 
+	// Whether user has chosen a card. Will set to true after a card is chosen to prevent user from selecting multiple cards
+	var cardChosen = false;
+
+	// Put the computer's response on a card and append to player-responses div
+	var appendCard = function(text, playerNumber) {
+		var response = '<div class="card-block"><h6 class="card-title" id="3">' + text + '</h6></div><div class="game-name"><span class="alien-font">1</span> Cards Against Extraterrestrials</div>';
+		var card = '<div class="card text-center">' + response + '</div>';
+		var button = '<button type="button" class="btn btn-warning">CPU ' + playerNumber + '</button>';
+		var div = '.player' + playerNumber + '-response';
+		
+		$(div).append(card);
+		$(div).append(button);
+	};
+
 	var setupGame = function() {
 		var category = new Category();
 		var numResponseOptions = 6;
@@ -92,6 +106,18 @@ $(document).ready(function() {
 		$("#category").text(category.text);
 		placeResponseCards(responses, numResponseOptions);
 		
+	};
+
+	var getComputerResponses = function() {
+		var numCompResponses = 3;
+		var response;
+		var responseText;
+
+		for (var i = 0; i < numCompResponses; i++) {
+			response = new Response();
+			responseText = response.text;
+			appendCard(responseText, i + 1);
+		}
 	};
 
 	var getResponses = function(num) {
@@ -118,9 +144,7 @@ $(document).ready(function() {
 		// $("#8").text(responses[8]);
 		// $("#9").text(responses[9]);
 	}; 
-	
-	// Start game
-	setupGame();
+
 
 	var userName = "";
 
@@ -146,5 +170,27 @@ $(document).ready(function() {
 			console.log(data);
 		});
 	});
+
+	$(".card").on("click", function(event) {
+		if (!cardChosen) {
+			$(this).appendTo(".player0-response");
+			$(".player0-response").append('<button type="button" class="btn btn-warning">The Human</button>')
+			getComputerResponses();
+			cardChosen = true;
+		}
+		// $.ajax("/api/update/response", {
+		// 	type: "POST",
+		// 	data: this
+		// }).then ( function() {
+		// 	console.log(this + " was sent to the server");
+		// 	// Reload the page to get the updated list
+		// 	location.reload();
+		// });
+	});
+
+	
+	// Start game
+	setupGame();	
+
 });
 
