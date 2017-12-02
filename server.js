@@ -29,7 +29,7 @@ app.use("/", cardController);
 //app.use("/", controller);
 //requires the routing files for that the app will be using
 require("./routes/htmlRoutes.js")(app);
-require("./routes/apiRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
