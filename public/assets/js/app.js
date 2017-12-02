@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var Category = function() {
-	this.options = ["_____? There's an app for that.", "Why can't I sleep at night?", "What's that smell?", "I got 99 problems, but _____ ain't one.", "Maybe she's born with it. Maybe it's _____.", "What's the next Happy Meal toy?",
+	this.options = ["_____? There's an app for that."/*, "Why can't I sleep at night?", "What's that smell?", "I got 99 problems, but _____ ain't one.", "Maybe she's born with it. Maybe it's _____.", "What's the next Happy Meal toy?",
 		"Anthropologists have recently discovered a primitive tribe that worships _____.", "It's a pity that kids these days are all getting involved with _____", "During Picasso's often-overlooked Brown Period, he produced hundreds of paintings of _____.",
 		"Alternative medicine is now embracing the curative powers of _____.", "What's that sound?", "What ended my last relationship?", "MTV's new reality show features eight washed-up celebrities living with _____.", "I drink to forget _____.",
 		"I'm sorry, Professor, but I couldn't complete my homework because of _____.", "What is Batman's guilty pleasure?", "This is the way the world ends, not with a bang but with _____.", "What's a girl's best friend?",
@@ -19,7 +19,7 @@ $(document).ready(function() {
 		"What am I giving up for Lent?", "In Michael Jackson's final moments, he thought about _____.", "In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on _____.", 
 		"When I am President of the United States, I will create the Department of _____.", "Lifetime presents _____, the story of my life.", "When I am a billionaire, I shall erect a 50-foot status to commemorate _____.", "When I was tripping on acid, I saw _____.",
 		"That's right, I killed Kenny. How you ask? _____.", "What's my anti-drug?", "What never fails to liven up the party?", "What's the new fad diet?", "Major League Baseball has banned _____ for giving players an unfair advantage.",
-		"Because of my investment in Bitcoin, soon I'll be able to afford _____.", "Thanks to the sharing economy, I can now make money renting out my _____.", "What's my startup disrupting?", "The inspiration for my startup"];
+		"Because of my investment in Bitcoin, soon I'll be able to afford _____.", "Thanks to the sharing economy, I can now make money renting out my _____.", "What's my startup disrupting?", "The inspiration for my startup"*/];
 
 		this.index = Math.floor(Math.random() * this.options.length);
 		this.text = this.options[this.index];
@@ -122,16 +122,29 @@ $(document).ready(function() {
 	// Start game
 	setupGame();
 
-//	$(".card").on("click", function(event) {//
+	var userName = "";
 
-//		$.ajax("/api/update/response", {
-//			type: "POST",
-//			data: this
-//		}).then ( function() {
-//			console.log(this + " was sent to the server");
-//			// Reload the page to get the updated list
-//			location.reload();
-//		});
-//	});
+	$("#login").click(function (event) {
+		//event.preventDefault();
+		userName = $("#userName").val().trim();
+	});
+
+	var currentURL = window.location.origin;
+
+	$(".response-card").click(function (){
+		var cardText = $(this).text();
+
+		var responseText = cardText.split("1");
+		var response = responseText[0].trim();
+
+		var userResponse = {
+			userName: userName,
+			response: response
+		}
+
+		$.post(currentURL + "/api/data", userResponse, function (data) {
+			console.log(data);
+		});
+	});
 });
 

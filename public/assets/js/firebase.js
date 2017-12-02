@@ -1,40 +1,63 @@
-$(document).ready(function () {
-	// Initialize Firebase
-	var config = {
-    	apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
-        authDomain: "cards-against-extraterrestials.firebaseapp.com",
-        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
-        projectId: "cards-against-extraterrestials",
-        storageBucket: "cards-against-extraterrestials.appspot.com",
-        messagingSenderId: "1038459487422"
-    };
-    firebase.initializeApp(config);
+//$(document).ready(function () {
+//	// Initialize Firebase
+//	var config = {
+//    	apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
+//        authDomain: "cards-against-extraterrestials.firebaseapp.com",
+//        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
+//        projectId: "cards-against-extraterrestials",
+//        storageBucket: "cards-against-extraterrestials.appspot.com",
+//        messagingSenderId: "1038459487422"
+//    };
+//    firebase.initializeApp(config);//
 
-    var database = firebase.database();
+//    var database = firebase.database();//
 
-    var userName = "";
+//    var userName = "";//
 
-    var playersRef = database.ref("players");
+//    var playersRef = database.ref("/players");//
 
-    var currentPlayers = null;
+//    var connectionsRef = database.ref("/connections");//
 
-    $("#login").click(function (event) {
+//    var trigger = true;//
 
-       	console.log("heelo");
+//    $("#login").click(function (event) {//
 
-        if (currentPlayers < 6) {
-                
-        }
+//       	//sets player's username based on their input
+//       	userName = $("#userName").val().trim();
+//	    // Creates key based on assigned player number
+//	    playersRef = database.ref("/players/" + userName);
+//	    //updates firebase when a player joins
+//	    playersRef.set({
+//	    	gameJoined: "yes"
+//	    });
+//    });//
 
-        userName = $("#userName").val().trim();
-        // Creates key based on assigned player number
-        playersRef = database.ref("/players/" + userName);
+//    playersRef.on("child_added", function (snapshot) {
+//    	console.log(snapshot.numChildren());//
 
-        playersRef.set({
-        	points: 'all the points'
-        });
-    });
-});
+//    	if (snapshot.numChildren() === 1) {
+//    		var con = playersRef.set(true);//
+
+//    		con.onDisconnect().remove();
+//    	}//
+
+//    	if (snapshot.numChildren() === 5) {
+//    		console.log("game starting");//
+//
+
+//    	}//
+
+//    	var playerOneExists = snapshot.child().exists();//
+
+//    	var playerOneData = snapshot.child("1").val();//
+
+//    	console.log(playerOneExists);//
+
+//    	console.log(playerOneData);
+//    });//
+
+//    playersRef.onDisconnect().remove();
+//});
 //when player 1 logs on, initialize the game, creates a game table inside database
 //game table will have game name, usernames
 //player1 is waiting for addtional players to join
