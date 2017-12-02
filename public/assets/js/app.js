@@ -167,7 +167,7 @@ $(document).ready(function() {
       		});
 	});
 
-	$(".card").on("click", function(event) {
+	$(".response-card").on("click", function(event) {
 		if (!cardChosen) {
 			$(this).appendTo(".player0-response");
 			$(".player0-response").append('<button type="button" class="btn btn-warning">The Human</button>')

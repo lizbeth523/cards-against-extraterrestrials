@@ -6,19 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards Against Extraterrestrials</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link async href="http://fonts.googleapis.com/css?family=Anton" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/game.css">
     <script
         src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
-<<<<<<< HEAD
       <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
       <script src="./assets/js/firebase.js"></script>
-=======
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <!-- <script src="./assets/js/firebase.js"></script> -->
->>>>>>> a03a51d38c3cd733e37a7d5031d97336310d759d
     <script src="./assets/js/app.js"></script>
   </head>
 
@@ -43,7 +37,6 @@
         </div>
       </div> <!-- end div class="row" -->
 
-<<<<<<< HEAD
       <div class="row response-row">
   
         <div class="col-xl-2 col-xs-12">
@@ -110,72 +103,19 @@
                   <span class="alien-font">1</span> Cards Against Extraterrestrials
                 </div>
             </div> <!-- end div class="card" -->
-=======
-    <div class="container-fluid">
-            
-        <div class="row">
-            <div class="col-xs-12">
-     
-                <form>
-                    <div class="form-group" action="/game" method="GET">
-                        <label for="userName"><h3>Username</h3></label>
-                      
-<!--                         <input type="text" class="form-control" id="name" name="user_name" placeholder="John Smith"> -->
-                      
-                        <input type="text" class="form-control" id="userName" placeholder="John">
-                    </div>
-                    <a href="/game"><button type="button" class="btn btn-warning" id="login">Login</button></a>
-                </form>
-            </div>
->>>>>>> a03a51d38c3cd733e37a7d5031d97336310d759d
         </div>
 
-<<<<<<< HEAD
       </div> <!-- end div class="row" -->
 
+      <!-- <div class="row player-responses">
+          <div class="col-xl-2"></div>
+          <div class="col-xl-2 player0-response"></div>
+          <div class="col-xl-2 player1-response"></div>
+          <div class="col-xl-2 player2-response"></div>
+          <div class="col-xl-2 player3-response"></div>
+      </div> --> <!-- end div class="row" -->
+ 
       <footer></footer>
     </div> <!-- end div class="container" -->
   </body>
 </html>
-=======
-</body>
-</html>
-
-<script>
-	// Initialize Firebase
-	var config = {
-        apiKey: "AIzaSyDwsIqLQ2130R93_l1lGndlduTtp69OMpU",
-        authDomain: "cards-against-extraterrestials.firebaseapp.com",
-        databaseURL: "https://cards-against-extraterrestials.firebaseio.com",
-        projectId: "cards-against-extraterrestials",
-        storageBucket: "cards-against-extraterrestials.appspot.com",
-        messagingSenderId: "1038459487422"
-    };
-    firebase.initializeApp(config);
-
-    var database = firebase.database();
-
-	var players = database.ref('/players');
-
-	const btnLogin = $("#login");
-
-	console.log(btnLogin);
-
-	$("#login").on("click", function(event){
-		event.preventDefault(event);
-		
-	    firebase.auth().signInAnonymously().catch(function(error) {
-	    	console.log("Error occurred during sign in anonymously");
-	    	console.log("Error code = " + error.code);
-	    	console.log("Error message = " + error.message);
-	    });
-	    console.log("login button was clicked");
-	});
-
-	firebase.auth().onAuthStateChanged(firebaseUser=>{
-		console.log(firebaseUser);
-		console.log(firebaseUser.uid);
-		players.push(firebaseUser.uid);
-	});
-</script>
->>>>>>> a03a51d38c3cd733e37a7d5031d97336310d759d
