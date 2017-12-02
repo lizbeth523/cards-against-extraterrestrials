@@ -2,6 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var controller = require("./controllers/controller.js");
 
+var cardController = require("./controllers/controller.js");
+
 // Requiring our models for syncing
 var db = require("./models");
 
@@ -20,26 +22,9 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
-// Set Handlebars.
-// var exphbs = require("express-handlebars");
-
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
-
 // Routes
 // =============================================================
-// require("./controllers/controller.js")(app);
-
-//app.get("/", function(req, res) {
-//    db.leader.findAll({}).then( function(response) {
-      // var hbsObject = {
-      //   leaders: response
-      // };
-      // console.log(hbsObject);
-      // res.render("index", hbsObject);
-      //res.redirect("/");
-    //});
-//});
+app.use("/", cardController);
 
 //app.use("/", controller);
 //requires the routing files for that the app will be using
