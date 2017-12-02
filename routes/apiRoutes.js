@@ -15,6 +15,6 @@ module.exports = function (app) {
 		//saves the user response to the server
 		data.push(userResponse);
 		//return the response to use by sequelize
-		response.json(userResponse); 
+		response.json(userResponse);
 	});
 }

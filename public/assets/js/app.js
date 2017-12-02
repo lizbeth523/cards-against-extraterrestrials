@@ -146,29 +146,25 @@ $(document).ready(function() {
 	}; 
 
 
-	var userName = "";
-
-	$("#login").click(function (event) {
-		//event.preventDefault();
-		userName = $("#userName").val().trim();
-	});
-
-	var currentURL = window.location.origin;
-
-	$(".response-card").click(function (){
+	$(".response-card").click(function () {
 		var cardText = $(this).text();
 
 		var responseText = cardText.split("1");
 		var response = responseText[0].trim();
 
-		var userResponse = {
-			userName: userName,
-			response: response
+		var newCard = {
+			card_text: response
 		}
 
-		$.post(currentURL + "/api/data", userResponse, function (data) {
-			console.log(data);
-		});
+		$.ajax("/api/data", {
+    		type: "POST",
+    		data: newCard
+    	}).then(
+      		function() {
+        		console.log("created new card");
+        		// Reload the page to get the updated list
+        		location.reload();
+      		});
 	});
 
 	$(".response-card").on("click", function(event) {
