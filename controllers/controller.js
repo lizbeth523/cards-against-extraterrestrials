@@ -5,17 +5,15 @@ var express = require("express");
 var router = express.Router();
 
 //// Create our burger routes and set up logic within those routes where required.
-//router.post("/api/leaders", function(req, res) {//
-
-//	db.leader.create({
-//		leader_name: req.body.leader_name
-//	}).then( function(response) {
-//		res.redirect("/");
-//	}).catch( function(error) {
-//		res.json(error);
-//	});//
-
-//});//
+router.post("/api/data", function(req, res) {
+	db.card.create({
+		card_text: req.body.card_text
+	}).then( function(response) {
+		res.redirect("/");
+	}).catch( function(error) {
+		res.json(error);
+	});
+});
 
 //router.put("/api/update", function(req, res) {
 //	
