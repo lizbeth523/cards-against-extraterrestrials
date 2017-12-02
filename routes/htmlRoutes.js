@@ -10,4 +10,8 @@ module.exports = function(app) {
 	app.get("/game", function(request, response) {
 	  response.sendFile(path.join(__dirname, "../public/game.html"));
 	});
+	//display the options for which to vote
+	app.get("/vote", function(request, response) {
+	  response.sendFile(path.join(__dirname, "../public/vote.html"));
+	});
 }

@@ -139,10 +139,6 @@ $(document).ready(function() {
 		$("#3").text(responses[3]);
 		$("#4").text(responses[4]);
 		$("#5").text(responses[5]);
-		// $("#6").text(responses[6]);
-		// $("#7").text(responses[7]);
-		// $("#8").text(responses[8]);
-		// $("#9").text(responses[9]);
 	}; 
 
 
@@ -162,28 +158,10 @@ $(document).ready(function() {
     	}).then(
       		function() {
         		console.log("created new card");
-        		// Reload the page to get the updated list
-        		location.reload();
+        		// Redirect to the voting page
+        		location.replace("/vote");
       		});
 	});
-
-	$(".response-card").on("click", function(event) {
-		if (!cardChosen) {
-			$(this).appendTo(".player0-response");
-			$(".player0-response").append('<button type="button" class="btn btn-warning">The Human</button>')
-			getComputerResponses();
-			cardChosen = true;
-		}
-		// $.ajax("/api/update/response", {
-		// 	type: "POST",
-		// 	data: this
-		// }).then ( function() {
-		// 	console.log(this + " was sent to the server");
-		// 	// Reload the page to get the updated list
-		// 	location.reload();
-		// });
-	});
-
 	
 	// Start game
 	setupGame();	

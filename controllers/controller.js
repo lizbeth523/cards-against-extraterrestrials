@@ -9,10 +9,17 @@ router.post("/api/data", function(req, res) {
 	db.card.create({
 		card_text: req.body.card_text
 	}).then( function(response) {
-		res.redirect("/");
+		res.redirect("/vote");
 	}).catch( function(error) {
 		res.json(error);
 	});
+});
+
+router.get("/api/data", function(req, res) {
+	db.card.findAll({}).then( function(dbCard) {
+      res.json(dbCard);
+      console.log(dbCard);
+    });
 });
 
 //router.put("/api/update", function(req, res) {
